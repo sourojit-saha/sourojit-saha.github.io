@@ -130,12 +130,28 @@
               </ul> -->
             </div>
             <div class="article-content">
+              <p style="text-align:justify">
+                Heterogeneous multi-robot SLAM tackles the problem of combining information from multiple sensors (of different types), 
+                from multiple robots, to build a map and localize the agents within it. Though several advancements have been made in 
+                multi-robot SLAM, as well as heterogeneous sensor SLAM (on a single robot), their combination is relatively unexplored 
+                and introduces new challenges. This project studies this problem, and explores a new method to combine maps from multiple 
+                robots, possibly with heterogeneous sensor data. The stack leverages a global alignment module and a map-merging module 
+                using the generalized-ICP algorithm, to combine pointclouds from different robots, and produce a common global map. We 
+                implement the system on real robots equipped with LiDAR sensors and monocular cameras. The system, when tested with LiDAR 
+                data produces promising results, and we explain our assumptions for it to work well with visual data. 
+              </p>
+
+              <p>Access full report <a href="files/c-slam.pdf">here &#128279</a></p>
+
+              <b>Some take aways:</b>
               <p>
-                ● Designed and developed a 4-step algorithm to merge heterogeneous sensor maps among multiple robots. Steps involved- sharing point-clouds, feature extraction & matching, global transform computation and map-merging           
+                ● Designed and developed a 4-step algorithm to merge heterogeneous sensor maps among multiple robots. Steps involved - sharing point-clouds, feature extraction & matching, global transform computation and map-merging           
               </p>
               <p>
                 ● Implemented GICP algorithm in C++ to merge Lidar point clouds from 2 robots to generate a master map for multi-robot SLAM
               </p>
+
+              <b>Here are some results:<br></b>
               <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTdRlrBus7naNAzM82TkdTIQHbDI-YwF7-9GFliR7jcZ9eVyuzGwU81tOiPo4oK_bxBV5B8lCitHaqh/embed?start=true&loop=true&delayms=3000" frameborder="0" width="650" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
               <!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTdRlrBus7naNAzM82TkdTIQHbDI-YwF7-9GFliR7jcZ9eVyuzGwU81tOiPo4oK_bxBV5B8lCitHaqh/embed?start=false&loop=false&delayms=3000" frameborder="0" width="650" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe> -->
               <!-- <p>
