@@ -130,13 +130,38 @@
               </ul> -->
             </div>
             <div class="article-content">
+              <p style="text-align:justify">
+                Autonomous, non-holonomic wheeled robots are being increasingly used in unstructured environments for operations like exploration, 
+                search and rescue, etc. Many situations may require robots to park themselves during navigation and operation in these types of 
+                environments. These situations can arise due to various reasons such as sensor failure, unfavorable operating conditions, etc., 
+                but specifying a safe parking spot and navigating to it safely can be difficult in unstructured environments. Moreover, for certain 
+                applications these robots usually operate in groups of heterogeneous robots and have to efficiently plan their routines to prevent 
+                interference among themselves. This creates a need for each robot to plan out feasible paths to navigate and also make space for 
+                other robots by safely moving aside. In this report, we aim to develop a planner for non-holonomic wheeled robots to reach any 
+                given goal position and orientation safely in unstructured environments with multiple obstacles. We also present a novel solution 
+                to efficiently find a safe parking location for a vehicle in its surrounding environment. This allows the vehicle to either safely 
+                stop when faced with adversarial scenarios or allow other robots in its team to navigate through the environment. We demonstrate 
+                the success of our approach through simulated and hardware results on mobile ground robots. 
+              </p>
+
+              <p>Access the report <a href="files/Safe_Parking.pdf">here &#128279</a>
+              </p>
+
+
+              <b>Some take aways:</b>
+              <p>
+                ● Developed motion primitives based on robot dynamics
+                
+              </p>
               <p>
                 ● Developed a lattice based planner in C++ to generate collision-free path for safe parking of autonomous wheeled robot in unstructured environments and adversarial situations
                 
               </p>
               <p>
-                ● Optimized and deployed the planner on RC trucks for real time application to find best parking spot within 2 secs 
+                ● Optimized and deployed the planner on RC trucks for real time application to find best parking spot within 1 sec
               </p>
+
+              <b>Here is a demo video:<br></b>
 
               <iframe src="https://drive.google.com/file/d/1Y3fAaAOBxnNP7fB--YTsqLhKFipXDQqK/preview" width="640" height="480" allow="autoplay"></iframe>
 
