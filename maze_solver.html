@@ -131,11 +131,14 @@
             </div>
             <div class="article-content">
               <p style="text-align:justify">
-                Here is a small demo for maze solving problem using a 2D robot that can move in the X-Y plane. The input to the robot are accelerations in the X and Y directions. 
-                A bound is applied to the maximum acceleration that can be commanded and the maximum velocity of the robot. A maze is created at random and the start & goal positions are defined. 
-                Thereafter, A* star algorithm is used to find the shortest possible path to solve the maze. Later a Model predictive controller 
-                is used to provide the input accelerations in the X and Y directions to the robot to track the path received after running the A* star algorithm. The results are visalized above. 
-                A sample colab file is provided below.
+                Here is a brief demonstration of a maze-solving problem using a 2D robot that can move in the X-Y plane. 
+                The inputs to the robot are accelerations in the X and Y directions. Constraints are imposed on both the 
+                maximum acceleration that can be commanded and the robot's maximum velocity. A maze is randomly generated, 
+                with start and goal positions explicitly defined. Subsequently, the A* algorithm is employed to identify the 
+                shortest possible path through the maze. Following this, a Model Predictive Controller (MPC) is utilized to 
+                calculate the necessary accelerations in the X and Y directions, enabling the robot to follow the path 
+                determined by the A* algorithm. The results are visualized in the figures above. For a hands-on experience, 
+                a sample Colab notebook is provided below.
               </p>
 
               <p>Access the colab file <a href="https://colab.research.google.com/drive/1TLYXOc-IPGbkrQjfwqIOuu5gLrIEk_ii?usp=sharing">here &#128279</a></p>
