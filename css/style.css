@@ -1269,3 +1269,76 @@ footer .credits a {
     bottom: 15px;
   }
 }
+
+/*======================================
+//--//-->   CUSTOM ADDITIONS
+======================================*/
+
+/* Equal-height course tiles */
+#courses .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#courses .col-md-4 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+#courses .work-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#courses .work-img {
+  height: 180px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+#courses .work-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#courses .work-content {
+  flex: 1;
+}
+
+.card-blog {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-blog .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-blog .card-title {
+  flex: 1;
+}
+
+.social-links-about {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.social-links-about a {
+  color: #4e4e4e;
+  font-size: 1.6rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.social-links-about a:hover {
+  color: #0078ff;
+}
