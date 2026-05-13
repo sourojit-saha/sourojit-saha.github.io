@@ -1,0 +1,43 @@
+---
+title: "Dropout Prediction for Online Courses"
+description: "ML pipeline achieving 92% accuracy in predicting student dropout risk from engagement patterns in online course data, using Random Forest, Naive Bayes, and Neural Network classifiers."
+thumbnail: "/img/ml.png"
+tags: ["Python", "Machine Learning", "Random Forest", "Neural Networks", "Data Science"]
+order: 8
+---
+
+## Overview
+
+Online courses suffer from notoriously high dropout rates — often exceeding 90% for MOOCs. Early identification of at-risk students enables timely intervention by instructors and platforms. This project builds a classification pipeline to predict whether a student will drop out of an online course based on their early engagement patterns.
+
+## Approach
+
+### Dataset & Features
+
+Student engagement data was extracted from an online course platform, including:
+
+- Login frequency and session duration patterns
+- Assignment completion rates and submission timing
+- Quiz performance and attempt counts
+- Forum participation (posts, replies, views)
+
+Features were engineered to capture both activity level and behavioral trends over the early weeks of the course.
+
+### Classifiers Evaluated
+
+Three classifier families were implemented and compared:
+
+| Model | Notes |
+|-------|-------|
+| **Random Forest** | Ensemble of decision trees; robust to noisy features, handles class imbalance well |
+| **Naive Bayes** | Fast probabilistic baseline; surprisingly effective on sparse engagement data |
+| **Neural Network** | Multi-layer perceptron; captures non-linear interaction effects |
+
+### Evaluation
+
+Models were evaluated using stratified k-fold cross-validation to ensure reliable performance estimates despite class imbalance between dropout and completion.
+
+## Results
+
+- **Best accuracy: 92%** achieved with the Random Forest classifier
+- Random Forest outperformed both the probabilistic baseline and the neural network, likely due to the relatively small dataset size where ensembles generalize better than deep models

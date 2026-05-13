@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+
+const allProjects = await getCollection('projects');
+const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
+
+const allTags = ['All', ...new Set(projects.flatMap((p) => p.data.tags))].sort((a, b) =>
+  a === 'All' ? -1 : b === 'All' ? 1 : a.localeCompare(b)
+);
+---
+
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Work</p>
+      <h2 class="section-title">Projects</h2>
+    </div>
+
+    <div class="projects-filter reveal" id="tag-filters">
+      {allTags.map((tag) => (
+        <button
+          class={`filter-btn${tag === 'All' ? ' active' : ''}`}
+          data-tag={tag}
+        >
+          {tag}
+        </button>
+      ))}
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+      {projects.map((project) => (
+        <ProjectCard
+          slug={project.slug}
+          title={project.data.title}
+          description={project.data.description}
+          thumbnail={project.data.thumbnail}
+          tags={project.data.tags}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const filters = document.getElementById('tag-filters')!;
+  const grid = document.getElementById('projects-grid')!;
+
+  filters.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.filter-btn');
+    if (!btn) return;
+
+    filters.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const tag = btn.getAttribute('data-tag')!;
+
+    grid.querySelectorAll<HTMLElement>('.project-card').forEach((card) => {
+      const tags = card.getAttribute('data-tags')?.split(',') ?? [];
+      card.hidden = tag !== 'All' && !tags.includes(tag);
+    });
+  });
+</script>

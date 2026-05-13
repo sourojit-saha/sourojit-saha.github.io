@@ -1,0 +1,47 @@
+---
+title: "Drone Control"
+description: "Mathematical modeling and LQR controller design for stable hovering of a nano quadcopter, validated in MATLAB, PyBullet simulation, and hardware."
+thumbnail: "/img/drone.jpg"
+tags: ["MATLAB", "Python", "LQR", "Control Systems", "Robotics"]
+order: 5
+demoUrl: "https://drive.google.com/file/d/1Yst1R5QGAMwzs4tcYORHOrdz1Lrm3dKb/preview"
+---
+
+## Overview
+
+This project develops a full control pipeline for a nano quadcopter — from first-principles mathematical modeling through hardware deployment. The goal was to achieve stable hovering using a model-based controller.
+
+## Technical Approach
+
+### 1. Mathematical Modeling
+
+A detailed **dynamic model** of the quadcopter was derived, capturing:
+
+- Rigid body dynamics (Newton-Euler equations)
+- Rotor thrust and torque relationships
+- Gyroscopic effects and aerodynamic drag
+
+### 2. Linearized State-Space Model
+
+The nonlinear dynamics were **linearized** around the hovering equilibrium point to produce a linear state-space representation:
+
+```
+ẋ = Ax + Bu
+y = Cx + Du
+```
+
+This enables the application of classical linear control techniques.
+
+### 3. LQR Controller Design
+
+A **Linear Quadratic Regulator (LQR)** was designed by solving the discrete-time algebraic Riccati equation. The LQR minimizes a cost function balancing state error and control effort, producing optimal feedback gains for stable hover.
+
+### 4. Validation Pipeline
+
+1. **MATLAB** — Initial controller design, simulation, and gain tuning
+2. **PyBullet** — Physics-based simulation for realistic validation before hardware testing
+3. **Hardware** — Deployed on a physical nano quadcopter
+
+## Results
+
+The LQR controller achieved stable hovering on the physical hardware, with the robot recovering from small perturbations. Demo video available above.

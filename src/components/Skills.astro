@@ -1,0 +1,57 @@
+---
+const skillGroups = [
+  {
+    title: 'Robotics Frameworks',
+    skills: ['ROS2', 'ROS', 'MoveIt', 'Gazebo', 'PyBullet', 'RVIZ'],
+  },
+  {
+    title: 'Languages',
+    skills: ['C++', 'Python', 'MATLAB'],
+  },
+  {
+    title: 'ML & Vision',
+    skills: ['PyTorch', 'OpenCV', 'NumPy', 'Pandas', 'Scikit-learn'],
+  },
+  {
+    title: 'Tools & Infrastructure',
+    skills: ['Docker', 'Git', 'AWS', 'Linux', 'Qt / PyQt'],
+  },
+  {
+    title: 'CAD & Design',
+    skills: ['SolidWorks', 'AutoCAD', 'Simulink', 'Siemens TIA Portal'],
+  },
+  {
+    title: 'Domains',
+    skills: [
+      'Motion Planning',
+      'Control Systems',
+      'SLAM',
+      'Computer Vision',
+      'Machine Learning',
+      'Mechatronics',
+    ],
+  },
+];
+---
+
+<section class="section" id="skills" style="background: var(--bg-surface);">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Toolkit</p>
+      <h2 class="section-title">Skills &amp; Technologies</h2>
+    </div>
+
+    <div class="skills-grid reveal">
+      {skillGroups.map((group) => (
+        <div class="skill-group">
+          <div class="skill-group-title">{group.title}</div>
+          <div class="skill-list">
+            {group.skills.map((skill) => (
+              <span class="skill-chip">{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

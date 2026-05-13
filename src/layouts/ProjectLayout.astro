@@ -1,0 +1,95 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  thumbnail: string;
+  tags: string[];
+  demoUrl?: string;
+  reportUrl?: string;
+  externalUrl?: string;
+}
+
+const { title, description, thumbnail, tags, demoUrl, reportUrl, externalUrl } = Astro.props;
+---
+
+<Layout title={`${title} — Sourojit Saha`} description={description}>
+  <section class="project-hero">
+    <div class="container">
+      <a href="/#projects" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> All Projects
+      </a>
+
+      <div class="project-hero-meta">
+        {tags.map((tag) => <span class="tag">{tag}</span>)}
+      </div>
+
+      <h1 class="project-hero-title">{title}</h1>
+      <p class="project-hero-desc">{description}</p>
+
+      {(demoUrl || reportUrl || externalUrl) && (
+        <div class="project-hero-links">
+          {demoUrl && (
+            <a href={demoUrl} target="_blank" rel="noopener" class="btn btn-primary">
+              <i class="fa-solid fa-play"></i> Demo
+            </a>
+          )}
+          {reportUrl && (
+            <a href={reportUrl} target="_blank" rel="noopener" class="btn btn-outline">
+              <i class="fa-solid fa-file-pdf"></i> View Details
+            </a>
+          )}
+          {externalUrl && (
+            <a href={externalUrl} target="_blank" rel="noopener" class="btn btn-outline">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> External Link
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="project-body">
+    <div class="container">
+      <div class="project-body-grid">
+        <article class="project-content">
+          <img src={thumbnail} alt={title} style="margin-bottom: 2rem;" />
+          <slot />
+        </article>
+
+        <aside class="project-sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Technologies</div>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+              {tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          </div>
+
+          {(demoUrl || reportUrl || externalUrl) && (
+            <div class="sidebar-card">
+              <div class="sidebar-card-title">Links</div>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                {demoUrl && (
+                  <a href={demoUrl} target="_blank" rel="noopener" class="btn btn-primary" style="justify-content:center;">
+                    <i class="fa-solid fa-play"></i> Demo
+                  </a>
+                )}
+                {reportUrl && (
+                  <a href={reportUrl} target="_blank" rel="noopener" class="btn btn-outline" style="justify-content:center;">
+                    <i class="fa-solid fa-file-pdf"></i> View Details
+                  </a>
+                )}
+                {externalUrl && (
+                  <a href={externalUrl} target="_blank" rel="noopener" class="btn btn-outline" style="justify-content:center;">
+                    <i class="fa-solid fa-globe"></i> Project Page
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>

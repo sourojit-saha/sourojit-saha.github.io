@@ -1,0 +1,42 @@
+---
+title: "Cyber Physical Production System"
+description: "Industry 4.0 upgrade of an autonomous cold storage unit with PID temperature control, Peltier elements, PLC integration, and a 3-DoF gripper for automated pick-and-place."
+thumbnail: "/img/cyber-physical-production-system.jpg"
+tags: ["PLC", "PID", "Siemens TIA", "Mechatronics", "Industry 4.0", "Robotics"]
+order: 7
+externalUrl: "https://www.igcsm.org/2016/01/01/jingel/"
+---
+
+## Overview
+
+This project was part of the **JInGEL** (Joint Industry-German Engineering Lab) initiative for Industry 4.0 research. The objective was to upgrade an existing cold storage unit into a fully autonomous cyber-physical production system capable of sensing, controlling, and acting.
+
+## System Components
+
+### Temperature Control Subsystem
+
+A **PID controller** was implemented for precise temperature regulation inside the cold storage unit:
+
+- **Sensors**: Temperature sensors continuously monitor the internal environment
+- **Actuators**: Peltier elements (thermoelectric coolers) provide heating and cooling
+- **Controller**: The PID loop drives the Peltier elements to maintain the target temperature set point with minimal overshoot and steady-state error
+
+### Electrical & PLC Integration
+
+The full electrical system was designed and integrated:
+
+- **Siemens TIA Portal** used for PLC programming and HMI development
+- Power supply unit, relay modules, and safety circuits integrated into the system
+- Sensor signals conditioned and fed into the PLC for closed-loop control
+
+### Pick & Place Subsystem
+
+A **3-DoF gripper** was integrated to handle workpieces entering and leaving the cold storage unit:
+
+- Inverse kinematics derived for the 3-joint arm
+- Trajectory planning for pick and place sequences
+- Coordinated with the cold storage door mechanism
+
+## Outcome
+
+The result was a fully functional autonomous cold storage unit capable of maintaining a set temperature while automatically handling workpiece storage and retrieval — a demonstration of mechatronic system integration for smart manufacturing.

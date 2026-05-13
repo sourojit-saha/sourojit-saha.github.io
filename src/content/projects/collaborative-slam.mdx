@@ -1,0 +1,36 @@
+---
+title: "Collaborative SLAM"
+description: "Heterogeneous multi-robot SLAM system combining point clouds from LiDAR and monocular cameras across multiple robots using generalized-ICP for global map merging."
+thumbnail: "/img/Collaborative SLAM.png"
+tags: ["C++", "ROS", "SLAM", "Multi-Robot", "Point Clouds", "LiDAR"]
+order: 6
+reportUrl: "/files/c-slam.pdf"
+---
+
+## Overview
+
+Heterogeneous multi-robot SLAM tackles a fundamental challenge: how do you combine information from multiple sensors of different types, carried by different robots, into a single coherent map? This project develops a new method for merging maps from robots with different sensor suites — tested on real hardware with both LiDAR and monocular cameras.
+
+## Algorithm Design
+
+A **4-step pipeline** was designed and implemented:
+
+### Step 1 — Point Cloud Sharing
+Each robot independently builds a local point cloud map from its own sensor data. These local maps are then shared across the robot team via a communications layer.
+
+### Step 2 — Feature Extraction & Matching
+Geometric features are extracted from each robot's point cloud. Correspondences between the maps are identified using descriptors robust to viewpoint variation.
+
+### Step 3 — Global Transform Computation
+Using the matched features, the rigid-body transformation aligning the two maps is computed. This gives the relative pose between the robots' reference frames.
+
+### Step 4 — Map Merging
+**GICP (Generalized Iterative Closest Point)** — implemented in C++ — refines the alignment and merges the point clouds into a single global map. GICP extends standard ICP by modeling local surface geometry (as planar distributions), producing more accurate and stable alignment than point-to-point ICP.
+
+## Hardware Experiments
+
+The system was implemented on real robots:
+- **Robot A**: LiDAR sensor (3D point cloud)
+- **Robot B**: Monocular camera (sparse depth estimation)
+
+Despite the sensor heterogeneity, the pipeline successfully produced a merged global map suitable for multi-robot localization.

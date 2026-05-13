@@ -1,0 +1,29 @@
+---
+title: "Maze Solver — A* and MPC Controller"
+description: "Global path planning with A* and trajectory tracking via a Model Predictive Controller, tested in a simulated 2D maze environment."
+thumbnail: "/img/mpc-no-legend-gif.gif"
+tags: ["Python", "A*", "MPC", "Motion Planning", "Control"]
+order: 1
+demoUrl: "https://colab.research.google.com/drive/1TLYXOc-IPGbkrQjfwqIOuu5gLrIEk_ii?usp=sharing"
+---
+
+## Overview
+
+A demonstration of a complete autonomous navigation pipeline for a 2D robot operating inside a randomly generated maze. The robot receives inputs as accelerations in the X and Y directions, subject to constraints on maximum acceleration and velocity.
+
+## Approach
+
+The system combines two complementary algorithms into a single pipeline:
+
+- **A\* (A-Star)** — employed to identify the globally shortest collision-free path through the maze. The heuristic-guided search efficiently navigates the discrete grid to find the optimal route from start to goal.
+
+- **Model Predictive Controller (MPC)** — deployed to compute the necessary accelerations for the robot to follow the A\* path in continuous space. The MPC formulates a constrained optimization at each timestep, respecting the robot's dynamic limits while minimizing tracking error.
+
+## Key Results
+
+- Successfully planned and executed collision-free trajectories through randomly generated mazes
+- MPC effectively handled the robot's dynamics while respecting acceleration and velocity constraints
+
+## Try It
+
+The full implementation is available as an interactive Google Colab notebook — no local setup required.

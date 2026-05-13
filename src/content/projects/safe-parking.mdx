@@ -1,0 +1,33 @@
+---
+title: "Safe Parking for Wheeled Robots"
+description: "Lattice-based path planner in C++ for safe autonomous parking of non-holonomic wheeled robots in unstructured and adversarial environments."
+thumbnail: "/img/safe-parking.png"
+tags: ["C++", "Path Planning", "Autonomous Vehicles", "Robotics"]
+order: 2
+demoUrl: "https://drive.google.com/file/d/1Y3fAaAOBxnNP7fB--YTsqLhKFipXDQqK/preview"
+reportUrl: "/files/Safe_Parking.pdf"
+---
+
+## Overview
+
+Autonomous non-holonomic wheeled robots operating in unstructured environments often need to park safely mid-navigation — whether to avoid obstacles, yield to dynamic agents, or wait for a safe passage. This project develops a planner that can reach any goal position and orientation safely while identifying optimal parking locations in surrounding environments.
+
+## Technical Approach
+
+### Motion Primitives
+Motion primitives were derived from the robot's kinematic model. These primitives form the edges of a lattice graph, respecting the non-holonomic constraints of wheeled robots (i.e., the robot cannot move sideways).
+
+### Lattice-Based Planner
+A lattice-based path planner was implemented in **C++** to search over the motion primitive graph and generate collision-free paths to target parking configurations. The planner explicitly handles:
+
+- Unstructured environments with irregular obstacle layouts
+- Adversarial situations where the robot must find safe stopping positions
+- Goal poses specified as a full 3-DOF state (x, y, heading)
+
+### Real-Time Optimization
+The planner was optimized and deployed on RC trucks for real-time application, finding the best parking spot **within 1 second**.
+
+## Results
+
+- Demonstrated successful parking in both simulation and hardware experiments on mobile ground robots
+- Real-time performance achieved on embedded hardware with tight compute budgets

@@ -1,0 +1,31 @@
+---
+title: "Path Planning for n-DoF Manipulator Arm"
+description: "Sampling-based motion planners (RRT, RRT*, RRT-Connect) implemented in C++ for collision-free path planning of a multi-joint robot arm with arbitrary degrees of freedom."
+thumbnail: "/img/myGif_rrt_2.gif"
+tags: ["C++", "RRT", "Motion Planning", "Robotics", "Manipulation"]
+order: 3
+---
+
+## Overview
+
+This project implements and evaluates sampling-based path planning algorithms for robotic manipulator arms with an arbitrary number of degrees of freedom (n-DoF). Planning in high-dimensional configuration spaces is a core challenge in robot manipulation — small changes in joint angles can cause large movements at the end-effector, making collision checking non-trivial.
+
+## Algorithms Implemented
+
+Three sampling-based planners were implemented and benchmarked:
+
+### RRT (Rapidly-exploring Random Tree)
+The baseline algorithm incrementally builds a tree from the start configuration by randomly sampling the configuration space and extending toward the sample. Efficient for finding *any* collision-free path.
+
+### RRT* (Asymptotically Optimal RRT)
+An extension of RRT that rewires the tree as new nodes are added, guaranteeing convergence to the optimal path length as the number of samples approaches infinity.
+
+### RRT-Connect
+A bidirectional variant that grows two trees simultaneously — one from the start and one from the goal — and connects them when they meet. Significantly faster in practice for many robot configurations.
+
+## Implementation & Results
+
+- All planners implemented in **C++** for performance
+- Evaluated on a **5-DoF manipulator arm** in simulation
+- Plans generated in **under 1 second** for typical scenarios
+- The planner generalizes to arms with arbitrary joint counts (n-DoF) without modification

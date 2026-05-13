@@ -1,0 +1,39 @@
+---
+title: "Learning for 3D Vision"
+description: "Deep learning projects in neural 3D representations — single-image point cloud prediction, Neural Radiance Fields (NeRF), and point cloud understanding with PointNet."
+thumbnail: "/img/3d-recon.gif"
+tags: ["Python", "PyTorch", "NeRF", "Computer Vision", "3D Vision", "Deep Learning"]
+order: 4
+externalUrl: "https://www.andrew.cmu.edu/course/16-825/projects/sourojis/"
+---
+
+## Overview
+
+A collection of 3D vision projects from CMU's *Learning for 3D Vision* course, covering the major paradigms in neural 3D representation and understanding: single-view reconstruction, neural rendering, and point cloud learning.
+
+## Projects
+
+### 1. Single-Image 3D Point Cloud Prediction
+
+A deep neural network was designed and trained to predict the **3D point cloud** of an object from a single RGB image.
+
+- Architecture: encoder-decoder with a point cloud output head
+- Dataset: ShapeNet renderings with paired ground-truth point clouds
+- **Result: 87% accuracy** on the test set
+
+### 2. Neural Radiance Fields (NeRF)
+
+Synthesized novel 3D views from multi-view images of an object using **Neural Radiance Fields (NeRF)**. NeRF represents a scene as a continuous volumetric function mapping (x, y, z, θ, φ) → (RGB, density), learned from a set of posed images. Novel views are rendered by integrating along camera rays.
+
+### 3. PointNet for Point Cloud Understanding
+
+Trained and evaluated the **PointNet** architecture for two tasks:
+
+- **Classification** — predicting the object category of a 3D point cloud
+- **Segmentation** — assigning per-point semantic labels
+
+PointNet's key insight is using a symmetric function (global max-pooling) to achieve permutation invariance over the unordered point set.
+
+## View the Project Page
+
+Full results, visualizations, and implementation details are on the [CMU course project page](https://www.andrew.cmu.edu/course/16-825/projects/sourojis/).
